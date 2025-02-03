@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
-#SBATCH -J FirstSlurm
-#SBATCH -o FirstSlurm-%j.out -e FirstSlurm-%j.err
+#SBATCH -p instruction
 #SBATCH -c 2
+#SBATCH -J FirstSlurm
+#SBATCH -o FirstSlurm.out 
+#SBATCH -e FirstSlurm-%j.err
 hostname
+./task6 6
