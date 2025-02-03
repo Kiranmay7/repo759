@@ -8,7 +8,8 @@ int main(int argc, char* argv[]) {
     }
     int num = std::atoi(argv[1]);
     for (int i = 0; i <= num; ++i) {
-        std::cout << i << " ";
+        //std::cout << i << " ";
+        printf("%d ",i);
     }
     std::cout << std::endl;
     for (int i = num; i >= 0; --i) {
