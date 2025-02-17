@@ -1,6 +1,5 @@
 #include <iostream>
 #include "scan.h"
-#include "scan.cpp"
 #include <random>
 #include <chrono>
 #include <ratio>
@@ -32,23 +31,13 @@ int main(int argc, char* argv[]) {
     {
         arr[i] = dist(gen);
     }
-    /*for(int i = 0; i<n;++i)
-    {
-        std::cout<<arr[i]<<" ";
-    }
-    std::cout<<"\n";
-    */
     float *output = new float[n];
     scan(arr, output, n);
 
     // Get the ending timestamp
     end = high_resolution_clock::now();
     
-    /*for(int i = 0; i<n;++i)
-    {*/
-        std::cout<<output[0]<<"\n"<<output[n-1]<<"\n";
-    //}
-    //std::cout<<"\n";
+    std::cout<<output[0]<<"\n"<<output[n-1]<<"\n";
 
     // Convert the calculated duration to a double using the standard library
     duration_sec = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
