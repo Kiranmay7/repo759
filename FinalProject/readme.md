@@ -1,8 +1,1 @@
-The Lattice Boltzmann Method (LBM) is a numerical approach for simulating fluid dynamics, particularly useful for Computational Fluid Dynamics (CFD) problems.
-Boltzmann transport equation
-The most common collision model is the BGK (Bhatnagar-Gross-Krook) approximation, simplifying the equation to:
-
-𝑓𝑖(𝑥+𝑒𝑖Δ𝑡,𝑡+Δ𝑡)−𝑓𝑖(𝑥,𝑡)=−1𝜏(𝑓𝑖(𝑥,𝑡)−𝑓𝑖eq(𝑥,𝑡))fi​(x+eiΔt,t+Δt)−fi(x,t)=−τ1(fi(x,t)−fieq(x,t))
-fi represents the distribution function in a given lattice direction 𝑖.
-ei is the discrete velocity vector corresponding to direction 𝑖.
-fieq is the equilibrium distribution function
+To implement and simulate large scale smoke simulation efficiently with high visual fidelity using 3D Navier-Stokes equation. The Navier-Stokes equation(NS) for Computational fluid dynamics (CFD) problem involves discretization with lattices and building equilibrium distribution function for computation. This involves dot products between velocity vectors and the sparse matrices stored in structured grid memory and multiple velocity computations involving sparse matrix operations. Our aim is to implement, optimize and compare the performance of smoke simulation in a multicore CPU with OpenMP vs GPU (CUDA).
