@@ -21,8 +21,7 @@ void matmul(const float* A, const float* B, float* C, size_t n, unsigned int thr
     cudaMemcpy(dB,B,sizeof(float)*n*n,cudaMemcpyHostToDevice);
     const int threads = std::sqrt(threads_per_block);
     const int blocks_per_grid = (n+threads-1)/threads;
-    //std::cout<<"Threads = "<<threads<<"\n";
-    //std::cout<<"Block_per_grid = "<<blocks_per_grid<<"\n";
+    
     dim3 dimGrid(blocks_per_grid,blocks_per_grid,1);
     dim3 dimBlock(threads,threads);
 

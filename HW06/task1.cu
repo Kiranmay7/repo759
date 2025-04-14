@@ -40,8 +40,8 @@ int main(int argc, char* argv[]) {
     }
     int n = std::atoi(argv[1]);
     int threads_per_block = std::atoi(argv[2]);
-    float A[n*n],B[n*n],C[n*n],Cref[n*n],ms; // Host and device arrays
-    //std::cout<<"main() for "<<n<<"\n";
+    float A[n*n],B[n*n],C[n*n],Cref[n*n],ms; // Host arrays
+    
     cudaEvent_t start;
     cudaEventCreate(&start);
     cudaEvent_t stop;
@@ -57,20 +57,16 @@ int main(int argc, char* argv[]) {
             B[i*n+j] = dist1(gen);
         }
     }
-    //std::cout<<"A: \n";
-    //print(A,n);
-    //std::cout<<"B: \n";
-    //print(B,n);
+
     cudaEventRecord(start);
     matmul(A,B,C,n,threads_per_block);
     cudaEventRecord(stop);
     cudaEventSynchronize(stop);
-    //std::cout<<"C: \n";
-    //print(C,n);
+    
     mmul_ref(A,B,Cref,n);
-    //std::cout<<"Cref :\n";
-    //print(Cref,n);
+    
     MatrixMaxDifference(C,Cref,n);
+    
     cudaEventElapsedTime(&ms,start,stop);
     std::cout<<"Total Time: "<<ms<<" ms\n";
     std::cout<<C[n*n-1]<<std::endl;
